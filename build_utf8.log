@@ -1,0 +1,93 @@
+﻿
+> friend-tracker@0.1.0 build
+> next build
+
+  Γû▓ Next.js 14.2.0
+  - Environments: .env.local
+
+   Creating an optimized production build ...
+npm : (node:37348) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. 
+Please use a userland alternative instead.
+At line:1 char:1
++ npm run build > build.log 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ((node:37348) [D...native instead.:String) [], 
+Rem    oteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+(Use `node --trace-deprecation ...` to show where the warning was created)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to 
+snapshot resolve dependencies
+(node:2320) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a 
+userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:2320) ExperimentalWarning: CommonJS module C:\Users\saini\Videos\new 
+projects\friend-tracker-final 
+(2)\friend-tracker-final\node_modules\tailwindcss\lib\lib\load-config.js is loading ES 
+Module C:\Users\saini\Videos\new projects\friend-tracker-final 
+(2)\friend-tracker-final\tailwind.config.ts using require().
+Support for loading ES Module in require() is an experimental feature and might change at 
+any time
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to 
+snapshot resolve dependencies
+ Γ£ô Compiled successfully
+   Linting and checking validity of types ...
+   Collecting page data ...
+(node:17940) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use 
+a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+   Generating static pages (0/6) ...
+   Generating static pages (1/6) 
+   Generating static pages (2/6) 
+TypeError: r(...) is not a constructor
+    at 69803 (C:\Users\saini\Videos\new projects\friend-tracker-final 
+(2)\friend-tracker-final\.next\server\app\page.js:26:2359)
+    at Object.t [as require] (C:\Users\saini\Videos\new projects\friend-tracker-final 
+(2)\friend-tracker-final\.next\server\webpack-runtime.js:1:128)
+    at require (C:\Users\saini\Videos\new projects\friend-tracker-final (2)\friend-tracker-f
+inal\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:16:18270)
+    at I (C:\Users\saini\Videos\new projects\friend-tracker-final (2)\friend-tracker-final\n
+ode_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:94362)
+    at C:\Users\saini\Videos\new projects\friend-tracker-final (2)\friend-tracker-final\node
+_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:96668
+    at F._fromJSON (C:\Users\saini\Videos\new projects\friend-tracker-final (2)\friend-track
+er-final\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:97106)
+    at JSON.parse (<anonymous>)
+    at O (C:\Users\saini\Videos\new projects\friend-tracker-final (2)\friend-tracker-final\n
+ode_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:94083)
+    at t (C:\Users\saini\Videos\new projects\friend-tracker-final (2)\friend-tracker-final\n
+ode_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:100582)
+    at runNextTicks (node:internal/process/task_queues:65:5) {
+  digest: '1364638257'
+}
+   Generating static pages (4/6) 
+(node:12980) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use 
+a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Error occurred prerendering page "/". Read more: 
+https://nextjs.org/docs/messages/prerender-error
+
+TypeError: r(...) is not a constructor
+    at 69803 (C:\Users\saini\Videos\new projects\friend-tracker-final 
+(2)\friend-tracker-final\.next\server\app\page.js:26:2359)
+    at Object.t [as require] (C:\Users\saini\Videos\new projects\friend-tracker-final 
+(2)\friend-tracker-final\.next\server\webpack-runtime.js:1:128)
+    at require (C:\Users\saini\Videos\new projects\friend-tracker-final (2)\friend-tracker-f
+inal\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:16:18270)
+    at I (C:\Users\saini\Videos\new projects\friend-tracker-final (2)\friend-tracker-final\n
+ode_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:94362)
+    at C:\Users\saini\Videos\new projects\friend-tracker-final (2)\friend-tracker-final\node
+_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:96668
+    at F._fromJSON (C:\Users\saini\Videos\new projects\friend-tracker-final (2)\friend-track
+er-final\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:97106)
+    at JSON.parse (<anonymous>)
+    at O (C:\Users\saini\Videos\new projects\friend-tracker-final (2)\friend-tracker-final\n
+ode_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:94083)
+    at t (C:\Users\saini\Videos\new projects\friend-tracker-final (2)\friend-tracker-final\n
+ode_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:100582)
+    at runNextTicks (node:internal/process/task_queues:65:5)
+ Γ£ô Generating static pages (6/6)
+
+> Export encountered errors on following paths:
+	/page: /
