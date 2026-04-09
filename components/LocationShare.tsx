@@ -50,7 +50,7 @@ export default function LocationShare({ onLocationUpdate }: LocationShareProps) 
 
   const startSharing = useCallback(() => {
     if (!navigator.geolocation) {
-      setError("Aapka browser geolocation support nahi karta");
+      setError("Your browser does not support geolocation");
       return;
     }
 
@@ -66,15 +66,15 @@ export default function LocationShare({ onLocationUpdate }: LocationShareProps) 
         // Watch for continuous updates
         const id = navigator.geolocation.watchPosition(
           updateLocation,
-          () => {},
+          () => { },
           { enableHighAccuracy: true, maximumAge: 30000, timeout: 10000 }
         );
         setWatchId(id);
       },
       (err) => {
         setLoading(false);
-        if (err.code === 1) setError("Location permission denied kiya");
-        else setError("Location nahi mili, dobara try karo");
+        if (err.code === 1) setError("Location permission was denied");
+        else setError("Location not found, try again");
       },
       { enableHighAccuracy: true, timeout: 10000 }
     );
@@ -129,7 +129,7 @@ export default function LocationShare({ onLocationUpdate }: LocationShareProps) 
         ) : (
           <>
             <NavigationOff className="w-4 h-4" />
-            Apni location share karo
+            Share Location
           </>
         )}
       </button>
