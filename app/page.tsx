@@ -103,7 +103,7 @@ export default function HomePage() {
       <div className="h-screen bg-slate-950 flex items-center justify-center">
         <div className="flex flex-col items-center gap-3">
           <div className="w-8 h-8 border-2 border-blue-500 border-t-transparent rounded-full animate-spin" />
-          <p className="text-slate-400 text-sm">Map load ho raha hai...</p>
+          <p className="text-slate-400 text-sm">Map loading...</p>
         </div>
       </div>
     );
@@ -124,10 +124,9 @@ export default function HomePage() {
             absolute md:relative z-[2000] md:z-10 h-full
             flex flex-col bg-slate-900 border-r border-slate-800
             transition-all duration-300 ease-in-out flex-shrink-0
-            ${
-              sidebarOpen
-                ? "translate-x-0 w-full md:w-72"
-                : "-translate-x-full md:translate-x-0 w-full md:w-0 overflow-hidden shadow-none pointer-events-none md:pointer-events-auto"
+            ${sidebarOpen
+              ? "translate-x-0 w-full md:w-72"
+              : "-translate-x-full md:translate-x-0 w-full md:w-0 overflow-hidden shadow-none pointer-events-none md:pointer-events-auto"
             }
           `}
         >
