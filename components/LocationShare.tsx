@@ -124,7 +124,7 @@ export default function LocationShare({ onLocationUpdate }: LocationShareProps) 
         ) : sharing ? (
           <>
             <Navigation className="w-4 h-4" />
-            Location share ho rahi hai
+            Sharing location
           </>
         ) : (
           <>

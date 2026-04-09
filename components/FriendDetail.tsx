@@ -12,11 +12,11 @@ interface FriendDetailProps {
 function timeAgo(dateStr: string): string {
   const diff = Date.now() - new Date(dateStr).getTime();
   const mins = Math.floor(diff / 60000);
-  if (mins < 1) return "Abhi abhi";
-  if (mins < 60) return `${mins} min pehle`;
+  if (mins < 1) return "Just now";
+  if (mins < 60) return `${mins} mins ago`;
   const hrs = Math.floor(mins / 60);
-  if (hrs < 24) return `${hrs} ghante pehle`;
-  return `${Math.floor(hrs / 24)} din pehle`;
+  if (hrs < 24) return `${hrs} hours ago`;
+  return `${Math.floor(hrs / 24)} days ago`;
 }
 
 export default function FriendDetail({ friend, onClose }: FriendDetailProps) {
@@ -85,7 +85,7 @@ export default function FriendDetail({ friend, onClose }: FriendDetailProps) {
           className="mt-3 w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium py-2 rounded-xl transition-colors"
         >
           <Navigation className="w-3.5 h-3.5" />
-          Google Maps mein dekho
+          View on Google Maps
         </a>
       </div>
     </div>

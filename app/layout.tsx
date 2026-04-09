@@ -6,7 +6,7 @@ import { Providers } from "./providers";
 const inter = Inter({ subsets: ["latin"], variable: "--font-geist-sans" });
 
 export const metadata: Metadata = {
-  title: "Friend Tracker — Dekho Kaun Kahan Hai",
+  title: "Friend Tracker — See Who Is Where",
   description: "Real-time friend location tracking app",
 };
 

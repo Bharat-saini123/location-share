@@ -14,11 +14,11 @@ interface FriendsListProps {
 function timeAgo(dateStr: string): string {
   const diff = Date.now() - new Date(dateStr).getTime();
   const mins = Math.floor(diff / 60000);
-  if (mins < 1) return "Abhi abhi";
-  if (mins < 60) return `${mins} min pehle`;
+  if (mins < 1) return "Just now";
+  if (mins < 60) return `${mins} mins ago`;
   const hrs = Math.floor(mins / 60);
-  if (hrs < 24) return `${hrs} ghante pehle`;
-  return `${Math.floor(hrs / 24)} din pehle`;
+  if (hrs < 24) return `${hrs} hours ago`;
+  return `${Math.floor(hrs / 24)} days ago`;
 }
 
 function isOnline(dateStr: string): boolean {
@@ -128,7 +128,7 @@ export default function FriendsList({
       {friends.length === 0 && (
         <div className="flex flex-col items-center justify-center h-40 text-slate-600 text-sm">
           <MapPin className="w-8 h-8 mb-2 opacity-40" />
-          <p>Koi friend online nahi hai</p>
+          <p>No friends online</p>
         </div>
       )}
     </div>

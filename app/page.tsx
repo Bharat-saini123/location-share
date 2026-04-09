@@ -176,7 +176,7 @@ export default function HomePage() {
           <button
             onClick={() => setSidebarOpen((v) => !v)}
             className="absolute top-3 left-3 z-[1000] bg-slate-900/90 border border-slate-700 text-slate-300 hover:text-white p-2 rounded-xl transition-colors backdrop-blur"
-            title={sidebarOpen ? "Sidebar band karo" : "Sidebar kholo"}
+            title={sidebarOpen ? "Close sidebar" : "Open sidebar"}
           >
             <svg
               className="w-4 h-4"
