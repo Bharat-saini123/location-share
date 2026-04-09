@@ -34,9 +34,9 @@ export default function Map({
         zoomControl: false,
       });
 
-      // Dark tile layer
+      // Colorful tile layer
       L.tileLayer(
-        "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+        "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
         {
           attribution: "© OpenStreetMap © CARTO",
           maxZoom: 19,
