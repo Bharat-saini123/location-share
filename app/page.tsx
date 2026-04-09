@@ -4,7 +4,7 @@ import { useEffect, useState, useCallback } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
-import { Users, RefreshCw } from "lucide-react";
+import { Users, RefreshCw, X } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import FriendsList from "@/components/FriendsList";
 import FriendDetail from "@/components/FriendDetail";
@@ -26,6 +26,13 @@ export default function HomePage() {
   } | null>(null);
   const [selectedFriend, setSelectedFriend] = useState<string | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(true);
+
+  // Close sidebar by default on mobile screens
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.innerWidth < 768) {
+      setSidebarOpen(false);
+    }
+  }, []);
   const [loading, setLoading] = useState(true);
 
   // Redirect if not logged in
@@ -110,13 +117,18 @@ export default function HomePage() {
     <div className="h-screen flex flex-col bg-slate-950 overflow-hidden">
       <Navbar />
 
-      <div className="flex flex-1 min-h-0">
+      <div className="flex flex-1 min-h-0 relative">
         {/* Sidebar */}
         <aside
           className={`
+            absolute md:relative z-[2000] md:z-10 h-full
             flex flex-col bg-slate-900 border-r border-slate-800
             transition-all duration-300 ease-in-out flex-shrink-0
-            ${sidebarOpen ? "w-72" : "w-0 overflow-hidden"}
+            ${
+              sidebarOpen
+                ? "translate-x-0 w-full md:w-72"
+                : "-translate-x-full md:translate-x-0 w-full md:w-0 overflow-hidden shadow-none pointer-events-none md:pointer-events-auto"
+            }
           `}
         >
           {/* Sidebar header */}
@@ -130,13 +142,22 @@ export default function HomePage() {
                 {friends.length}
               </span>
             </div>
-            <button
-              onClick={fetchLocations}
-              className="text-slate-500 hover:text-slate-300 transition-colors p-1"
-              title="Refresh"
-            >
-              <RefreshCw className="w-3.5 h-3.5" />
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={fetchLocations}
+                className="text-slate-500 hover:text-slate-300 transition-colors p-1"
+                title="Refresh"
+              >
+                <RefreshCw className="w-3.5 h-3.5" />
+              </button>
+              {/* Mobile close button */}
+              <button
+                onClick={() => setSidebarOpen(false)}
+                className="md:hidden text-slate-500 hover:text-slate-300 transition-colors p-1"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
           </div>
 
           <FriendsList

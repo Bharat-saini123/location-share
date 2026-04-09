@@ -23,7 +23,7 @@ export default function FriendDetail({ friend, onClose }: FriendDetailProps) {
   const mapsUrl = `https://www.google.com/maps?q=${friend.latitude},${friend.longitude}`;
 
   return (
-    <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-[1000] w-72">
+    <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-[1000] w-[calc(100%-2rem)] sm:w-80">
       <div className="bg-slate-900/95 backdrop-blur border border-slate-700 rounded-2xl p-4 shadow-2xl">
         <div className="flex items-start gap-3">
           {/* Avatar */}
