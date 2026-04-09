@@ -1,8 +1,6 @@
 "use client";
 
-// Client-side only — real-time updates sunne ke liye
-import PusherClient from "pusher-js";
-
+const PusherClient= requires("pusher-js").default;
 export const pusherClient = new PusherClient(
   process.env.NEXT_PUBLIC_PUSHER_KEY!,
   {
