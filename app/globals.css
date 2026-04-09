@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --sidebar-width: 300px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Leaflet map full height fix */
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+  background: #0f172a;
+}
+
+/* Custom dark map tiles */
+.leaflet-tile-pane {
+  filter: brightness(0.7) saturate(0.8) hue-rotate(200deg);
+}
+
+/* Custom marker pulse animation */
+@keyframes ping-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.6; }
+}
+
+.friend-marker-pulse {
+  animation: ping-dot 2s ease-in-out infinite;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #475569; }
