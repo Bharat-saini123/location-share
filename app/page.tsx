@@ -20,6 +20,7 @@ export default function HomePage() {
   const router = useRouter();
 
   const [friends, setFriends] = useState<FriendLocation[]>([]);
+  const [isRefreshing, setIsRefreshing] = useState(false);
   const [myLocation, setMyLocation] = useState<{
     latitude: number;
     longitude: number;
@@ -42,6 +43,7 @@ export default function HomePage() {
 
   // Fetch all friends' locations
   const fetchLocations = useCallback(async () => {
+    setIsRefreshing(true);
     try {
       const res = await fetch("/api/location");
       if (!res.ok) return;
@@ -53,6 +55,7 @@ export default function HomePage() {
       // silently fail
     } finally {
       setLoading(false);
+      setIsRefreshing(false);
     }
   }, [session]);
 
@@ -146,8 +149,9 @@ export default function HomePage() {
                 onClick={fetchLocations}
                 className="text-slate-500 hover:text-slate-300 transition-colors p-1"
                 title="Refresh"
+                disabled={isRefreshing}
               >
-                <RefreshCw className="w-3.5 h-3.5" />
+                <RefreshCw className={`w-3.5 h-3.5 ${isRefreshing ? 'animate-spin' : ''}`} />
               </button>
               {/* Mobile close button */}
               <button
