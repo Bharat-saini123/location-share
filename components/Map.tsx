@@ -84,9 +84,8 @@ export default function Map({
             align-items: center;
             cursor: pointer;
           ">
-            ${
-              isSelected
-                ? `<div style="
+            ${isSelected
+            ? `<div style="
                 position: absolute;
                 width: 56px; height: 56px;
                 background: rgba(59,130,246,0.25);
@@ -94,8 +93,8 @@ export default function Map({
                 top: -8px; left: -8px;
                 animation: ping-dot 1.5s ease-in-out infinite;
               "></div>`
-                : ""
-            }
+            : ""
+          }
             <div style="
               width: 40px; height: 40px;
               background: ${isSelected ? "#3b82f6" : "#1e40af"};
@@ -182,7 +181,7 @@ export default function Map({
         { icon }
       )
         .addTo(leafletMap.current)
-        .bindPopup("Aap yahan hain");
+        .bindPopup("you are on here");
     });
   }, [myLocation]);
 
