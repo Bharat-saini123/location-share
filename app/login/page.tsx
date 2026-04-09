@@ -33,14 +33,14 @@ export default function LoginPage() {
             Friend Tracker
           </h1>
           <p className="text-slate-400 text-sm mt-1 text-center">
-            Dekho tumhare dost kahan hain — real time mein
+            See where your friends are — in real time
           </p>
         </div>
 
         {/* Card */}
         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
           <p className="text-slate-300 text-sm mb-5 text-center">
-            Sign in karke apni location share karo
+            Sign in and share your location
           </p>
 
           <button
@@ -65,11 +65,11 @@ export default function LoginPage() {
                 d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
               />
             </svg>
-            Google se sign in karo
+            Sign in with Google
           </button>
 
           <p className="text-slate-500 text-xs text-center mt-4">
-            Sign in karke aap hamare terms se agree karte hain
+            By signing in, you agree to our terms
           </p>
         </div>
       </div>
