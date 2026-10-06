@@ -5,7 +5,7 @@ Real-time friend location tracking app — dekho tumhare dost kahan hain!
 ## Features
 
 - 🔴 **Real-time updates** — Pusher se instant location changes dikhta hai
-- 🗺️ **Dark map** — Beautiful Leaflet + CartoDB dark tiles
+- 🗺️ **Dark map** — Leaflet + OpenStreetMap tiles (no map API key required)
 - 👥 **Friends sidebar** — Online/offline status ke saath
 - 📍 **Location sharing** — Ek click mein share/stop
 - 🔐 **Google OAuth** — NextAuth se secure login
@@ -145,7 +145,7 @@ Google OAuth redirect URI update karo:
 
 **"Location permission denied"** → Browser settings mein location allow karo
 
-**Map nahi dikh raha** → `npm install` dobara karo, leaflet CSS check karo
+**Map nahi dikh raha** → Map tiles ke liye API key nahi chahiye. Internet connection aur Leaflet CSS check karo; phir page refresh karo.
 
 **Pusher not working** → Cluster verify karo (`ap2` for Asia Pacific)
 

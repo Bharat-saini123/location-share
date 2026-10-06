@@ -1,5 +1,5 @@
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { FriendLocation } from "@/types";
 
 interface MapProps {
@@ -16,6 +16,7 @@ export default function Map({
   onFriendClick,
 }: MapProps) {
   const mapRef = useRef<HTMLDivElement>(null);
+  const [mapReady, setMapReady] = useState(false);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const leafletMap = useRef<any>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -27,29 +28,32 @@ export default function Map({
   useEffect(() => {
     if (!mapRef.current || leafletMap.current) return;
 
+    let cancelled = false;
+
     import("leaflet").then((L) => {
-      const map = L.map(mapRef.current!, {
+      if (cancelled || !mapRef.current) return;
+
+      const map = L.map(mapRef.current, {
         center: [20.5937, 78.9629], // India center
         zoom: 5,
         zoomControl: false,
       });
 
-      // Colorful tile layer
-      L.tileLayer(
-        "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
-        {
-          attribution: "© OpenStreetMap © CARTO",
-          maxZoom: 19,
-        }
-      ).addTo(map);
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 19,
+      }).addTo(map);
 
       // Custom zoom control position
       L.control.zoom({ position: "bottomright" }).addTo(map);
 
       leafletMap.current = map;
+      setMapReady(true);
     });
 
     return () => {
+      cancelled = true;
       if (leafletMap.current) {
         leafletMap.current.remove();
         leafletMap.current = null;
@@ -59,7 +63,7 @@ export default function Map({
 
   // Update friend markers
   useEffect(() => {
-    if (!leafletMap.current) return;
+    if (!mapReady || !leafletMap.current) return;
 
     import("leaflet").then((L) => {
       // Remove old markers
@@ -140,11 +144,11 @@ export default function Map({
         markersRef.current[friend.user_id] = marker;
       });
     });
-  }, [friends, selectedFriend, onFriendClick]);
+  }, [friends, mapReady, selectedFriend, onFriendClick]);
 
   // Update "my location" marker
   useEffect(() => {
-    if (!leafletMap.current || !myLocation) return;
+    if (!mapReady || !leafletMap.current || !myLocation) return;
 
     import("leaflet").then((L) => {
       if (myMarkerRef.current) myMarkerRef.current.remove();
@@ -183,18 +187,18 @@ export default function Map({
         .addTo(leafletMap.current)
         .bindPopup("you are on here");
     });
-  }, [myLocation]);
+  }, [mapReady, myLocation]);
 
   // Fly to selected friend
   useEffect(() => {
-    if (!leafletMap.current || !selectedFriend) return;
+    if (!mapReady || !leafletMap.current || !selectedFriend) return;
     const friend = friends.find((f) => f.user_id === selectedFriend);
     if (friend) {
       leafletMap.current.flyTo([friend.latitude, friend.longitude], 12, {
         duration: 1.2,
       });
     }
-  }, [selectedFriend, friends]);
+  }, [mapReady, selectedFriend, friends]);
 
   return <div ref={mapRef} className="w-full h-full" />;
 }
